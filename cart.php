@@ -184,7 +184,7 @@ $shipping = 0;
 
                 </div>
             </div>
-            
+
             <!-- summary -->
             <div class="row offset-lg-2 col-lg-8 col-md-12 col-12 product-dis d-md-flex justify-content-md-center py-4 wrapper2 mt-5  ">
                 <div class="row">
@@ -218,7 +218,7 @@ $shipping = 0;
                     </div>
 
                     <div class="col-12 mt-3 mb-3 d-grid">
-                        <button class="btn btn-primary fs-5 fw-bold">CHECKOUT</button>
+                        <button class="btn btn-primary fs-5 fw-bold" onclick="checkout();">CHECKOUT</button>
                     </div>
 
                 </div>
@@ -261,7 +261,43 @@ $shipping = 0;
     </div>
     <?php include "footer.php" ?>
     <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripe = Stripe("pk_test_51PMyUGDLRGeC8WnLlqb9MTEYJc9qg1VQ6niJUKLChFHtg9QKpa2TTLvgqd2dxbotDMCpPcMGCxoVvqPfyfNdKtl300KkBmH0Ss");
+
+        async function checkout() {
+
+            const fetchClientSecret = async () => {
+                const response = await fetch('./create-checkout-session.php', {
+                        method: 'POST',
+                    })
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(session) {
+                        return stripe.redirectToCheckout({
+                            sessionId: session.sessionId
+                        });
+                    })
+                    .then(function(result) {
+                        if (result.error) {
+                            alert(result.error.message);
+                        }
+                    })
+                    .catch(function(error) {
+                        console.error('Error:', error);
+                    });
+
+
+
+            };
+
+            fetchClientSecret();
+
+
+        }
+    </script>
     <script src="script.js"></script>
+
 
 </body>
 

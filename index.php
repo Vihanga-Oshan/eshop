@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="bootstrap.css" />
     <link rel="stylesheet" href="style.css" />
+   
     
 </html>
 
@@ -187,7 +188,7 @@
                 </div>
             </div>
 <!-- modal -->
-
+         <script src="https://js.stripe.com/v3/"></script>
          <script  src="script.js"></script>
          <script src="bootstrap.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

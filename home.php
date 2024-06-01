@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="style2.css" />
-
+    <script src="https://js.stripe.com/v3/"></script>
     <link rel="icon" href="resource/yankeelogo.png" />
 
 </head>
@@ -303,8 +303,9 @@
 
         </div>
     </div></div>
-    
+   
     <script src="bootstrap.bundle.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="script.js"></script>
 
 </body>
