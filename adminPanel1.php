@@ -121,7 +121,7 @@ for ($x = 0; $x < $invoice_num; $x++) {
                         </div>
                         <div class="col-3 sell-con d-flex justify-content-between align-items-center mx-4">
                             <div>
-                                <p style="color: rgba(9, 10, 10, 0.579);">Today Selling</p>
+                                <p style="color: rgba(9, 10, 10, 0.579);">Daily Sellings</p>
                                 <h2 style="color:#2491EB;" ><?php echo $c; ?> Items</h2>
                             </div>
                             <button class="btn">
@@ -305,6 +305,132 @@ if ($freq_num > 0) {
 
                         </div>
                     </div>
+
+                    <div class="col-8 mt-4 Order" style="font-family: 'Lato', sans-serif;">
+                            <div class="d-flex justify-content-start py-5 px-4">
+                                <h5 style="color: #2491EB;">All Products</h5>
+                            </div>
+                            
+
+                            <div class="container-fluid">
+        <div class="row">
+
+
+
+            
+
+            <div class="col-12 mt-3 mb-3">
+                <div class="row">
+                    <div class="col-2 col-lg-1  py-2 text-end">
+                        <span class="fs-4 fw-bold ">#</span>
+                    </div>
+                    <div class="col-2 d-none d-lg-block  py-2">
+                        <span class="fs-4 fw-bold">Product Image</span>
+                    </div>
+                    <div class="col-4 col-lg-2  py-2">
+                        <span class="fs-4 fw-bold ">Title</span>
+                    </div>
+                    <div class="col-4 col-lg-2 d-lg-block  py-2">
+                        <span class="fs-4 fw-bold">Price</span>
+                    </div>
+                    <div class="col-2 d-none d-lg-block  py-2">
+                        <span class="fs-4 fw-bold ">Quantity</span>
+                    </div>
+                    <div class="col-2 d-none d-lg-block  py-2">
+                        <span class="fs-4 fw-bold">Registered Date</span>
+                    </div>
+                    <div class="col-2 col-lg-1 "></div>
+                </div>
+            </div>
+
+       <?php  
+
+       $query = "SELECT * FROM `product`";
+         $product_rs = Database::search($query);
+  $product_num = $product_rs->num_rows;
+  for ($x = 0; $x < $product_num; $x++) {
+      $selected_data1 = $product_rs->fetch_assoc();
+  
+  ?>
+
+
+
+            <div class="col-12 mt-3 mb-3">
+                    <div class="row">
+                        <div class="col-2 col-lg-1 bg-light py-2 text-end">
+                            <span class="fs-5 "><?php echo $selected_data1["id"]; ?></span>
+                        </div>
+                        <div class="col-2 d-none d-lg-block bg-light py-2" onclick="viewProductModal('<?php echo $selected_data1['id']; ?>');">
+                            <?php
+                            $image_rs1 = Database::search("SELECT * FROM `images` WHERE `product_id`='" . $selected_data1["id"] . "'");
+                            $image_num1 = $image_rs1->num_rows;
+                            if ($image_num1 == 0) {
+                            ?>
+                                <img src="resource/mobile_images/iphone12.jpg" style="height: 40px;margin-left: 80px;margin-top:10px;" />
+                            <?php
+                            } else {
+                                $image_data1 = $image_rs1->fetch_assoc();
+                            ?>
+                                <img src="<?php echo $image_data1["path"]; ?>" style="height: 40px;margin-left: 80px; margin-top:10px;" />
+                            <?php
+                            }
+
+                            ?>
+
+                        </div>
+                        <div class="col-4 col-lg-2 bg-light py-2">
+                            <span class="fs-5  "><?php echo $selected_data1["title"]; ?></span>
+                        </div>
+                        <div class="col-4 col-lg-2 d-lg-block bg-light py-2">
+                            <span class="fs-5 ">Rs. <?php echo $selected_data1["price"]; ?> .00</span>
+                        </div>
+                        <div class="col-2 d-none d-lg-block bg-light py-2">
+                            <span class="fs-5  "><?php echo $selected_data1["qty"]; ?></span>
+                        </div>
+                        <div class="col-2 d-none d-lg-block bg-light py-2">
+                            <span class="fs-5 "><?php echo $selected_data1["datetime_added"]; ?></span>
+                        </div>
+                        <div class="col-2 col-lg-1 bg-white py-2 d-grid">
+                            <?php
+
+                            if ($selected_data1["status_status_id"] == 1) {
+                            ?>
+                                <button style="height: 35px;margin-top:10px;" id="pb<?php echo $selected_data1['id']; ?>" class="btn btn-danger" onclick="blockProduct('<?php echo $selected_data1['id']; ?>');">Block</button>
+                            <?php
+                            } else {
+                            ?>
+                                <button id="pb<?php echo $selected_data1['id']; ?>" class="btn btn-success" onclick="blockProduct('<?php echo $selected_data1['id']; ?>');">Unblock</button>
+                            <?php
+
+                            }
+
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+                
+<?php }
+?>
+
+
+         
+
+            
+
+           
+                   
+
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+
+                        </div>
                     
                 </div>
 

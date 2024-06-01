@@ -11,7 +11,7 @@ require "connection.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Selling History | Admins | eShop</title>
+    <title>YanKee | Selling</title>
 
     <link rel="stylesheet" href="bootstrap.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -20,13 +20,13 @@ require "connection.php";
     <link rel="icon" href="resource/logo.svg" />
 </head>
 
-<body style="background-color: #74EBD5;background-image: linear-gradient(90deg,#74EBD5 0%,#9FACE6 100%);">
+<body class=" bodytop"style="background-color: #bde6fae4;">
+<?php include "header.php" ?>
+    <div class="offset-1 col-10  container-fluid">
+        <div class="row ">
 
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-12 bg-light text-center">
-                <label class="form-label text-primary fw-bold fs-1">Selling History</label>
+            <div class="col-12 bg-light mt-4 text-center">
+                <label class="form-label text-primary mt-4  fs-2">Selling History</label>
             </div>
 
             <div class="col-12 bg-light mt-3 mb-3">
