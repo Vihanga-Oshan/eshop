@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="bootstrap.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="style2.css" />
-    <script>window.onscroll = function() {scrollFunction()};</script>
+     <script>window.onscroll = function() {scrollFunction()};</script>
     
 </html>
 
