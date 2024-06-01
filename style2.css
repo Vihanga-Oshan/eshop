@@ -270,7 +270,18 @@
   }
   .item-card-border:hover{
     border-style: solid;
-    border-color: #0D6EFD;
-    border-width: 1px;
+    border-color: #005eff;
+    border-width: 2px;
+    
+    box-shadow: 0 0 8px rgba(151, 151, 151, 0.5);
+
+  
+  
+  background-color: rgb(249, 249, 249) ;
+  border:1px solid rgba(236, 236, 236, 0.1);
+ 
+  backdrop-filter:blur(20px);
+  transition: height .2s ease;
+  
   }
   

@@ -440,6 +440,11 @@ background-color: transparent;
 backdrop-filter:blur(20px);
 color:white;
 }
+.transparentb{
+  background-color:transparent;
+  backdrop-filter:blur(10px);
+  
+  }
 
 .remember-forget label input{
   accent-color:  #162938;
@@ -631,3 +636,23 @@ margin:20px 0px;
 padding: 10px 0px;
 border-top: 1px solid #333;
 }
+
+.wrapper2{
+  position: relative; 
+  box-shadow: 0 0 10px rgba(0,0,0, .5);
+
+  color:rgba(0,0,0, 0.9);
+
+  display: flex;
+  
+  align-items: center; 
+  justify-content: center;
+  background-color: rgb(255, 255, 255) ;
+  
+  overflow-x:hidden;
+  border:2px solid rgba(225,225,225,.1);
+  border-radius:20px;
+  backdrop-filter:blur(20px);
+  transition: height .2s ease;
+  
+  }

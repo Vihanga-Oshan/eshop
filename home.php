@@ -75,7 +75,7 @@
 <div class="col-12 imgshow d-none d-lg-block">
                     <div class="bg-image img1">
 
-                    <div class="col-8 mainCategories"><div class="mainCategoriestext">Popular Categories</div>
+                    <div class="col-7 mainCategories"><div class="mainCategoriestext">Popular Categories</div>
                     <a href="cart.php"><div class="col-12 mt-4 d-flex maincartimglist">
                         
                    
@@ -302,8 +302,8 @@
             
 
         </div>
-    </div>
-
+    </div></div>
+    
     <script src="bootstrap.bundle.js"></script>
     <script src="script.js"></script>
 

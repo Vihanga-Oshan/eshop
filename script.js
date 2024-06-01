@@ -650,7 +650,7 @@ function deleteFromCart(id){
     r.onreadystatechange = function (){
         if(r.readyState == 4){
             var t = r.responseText;
-
+           
             if(t == "Product has been removed"){
                 alert (t);
                 window.location.reload();
@@ -1150,4 +1150,55 @@ function searchInvoiceId() {
     r.send(f);
  }
 
+
+   function updateSubTotal(price,id){
+    form = new FormData();
+    var amount = document.getElementById("cart-amount-"+id).value;
+    var subDOM = document.getElementById("cart-sub-"+id);
+    form.append('id',id);
+    form.append('amount',amount);
+   
+    var sub=amount*price;
+    subDOM.innerHTML=""+sub+"";
+    finalsubcal();
+    
+    xhr = new XMLHttpRequest();
+    xhr.onload= function (){
+      console.log(xhr.responseText);
+
  
+    }
+    xhr.open("POST","updateCartAmout.php");
+    xhr.send(form);
+
+   }
+   function finalsubcal() {
+    var finalsub = 0;
+    var finaltotal=0;
+    var subtotals = document.querySelectorAll(".subtotals");
+    
+    if (subtotals.length === 0) {
+      document.getElementById("cart-empty-msg").classList.remove("d-none");
+      
+      document.getElementById("final-sub").innerHTML = "LKR 0";
+      document.getElementById("final-total").innerHTML="LKR 0";
+    } else {
+      document.getElementById("cart-empty-msg").classList.add("d-none");
+      
+      subtotals.forEach(function (item) {
+        console.log(finalsub);
+        console.log(item.innerHTML);
+        finalsub += parseInt(item.innerHTML);
+      });
+      document.getElementById("final-sub").innerHTML = "LKR " + finalsub;
+      if(document.getElementById("delfee").checked){
+        var finaltotal=finalsub+500;
+        document.getElementById("final-total").innerHTML="LKR"+finaltotal+"";
+      }
+      else{
+       var finaltotal=finalsub;
+       document.getElementById("final-total").innerHTML="LKR"+finaltotal+"";
+      }
+    }
+   
+  }
